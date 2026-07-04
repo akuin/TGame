@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://74uy1vyluufu"]
+
+[ext_resource type="PackedScene" uid="uid://bfy31wn621ob1" path="res://paddle.tscn" id="1_f3sb7"]
+[ext_resource type="PackedScene" uid="uid://b5euf3h358583" path="res://ball.tscn" id="2_fj7yv"]
+[ext_resource type="PackedScene" uid="uid://dtl8gp4qgoeod" path="res://walls.tscn" id="3_tlwt5"]
+[ext_resource type="PackedScene" uid="uid://bknevm70eminh" path="res://brick.tscn" id="4_aqk2v"]
+
+[sub_resource type="Sky" id="Sky_gv5m4"]
+
+[sub_resource type="Environment" id="Environment_vvwgk"]
+background_mode = 2
+sky = SubResource("Sky_gv5m4")
+
+[node name="World" type="Node3D" unique_id=671536592]
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=611425504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.356503, 2.4157078)
+projection = 1
+size = 8.049
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=934040240]
+transform = Transform3D(1, 0, 0, 0, 0.9036812, 0.42820585, 0, -0.42820585, 0.9036812, -8.00076, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1997412242]
+environment = SubResource("Environment_vvwgk")
+
+[node name="Paddle" parent="." unique_id=1249114116 instance=ExtResource("1_f3sb7")]
+
+[node name="Ball" parent="." unique_id=1531433162 instance=ExtResource("2_fj7yv")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 1.8869369, 0)
+
+[node name="Walls" parent="." unique_id=1526740175 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, -5, 0, 0)
+
+[node name="Walls2" parent="." unique_id=1549702067 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, 5, 0, 0)
+
+[node name="Walls3" parent="." unique_id=192835248 instance=ExtResource("3_tlwt5")]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.38, 0)
+
+[node name="Brick" parent="." unique_id=1658827167 instance=ExtResource("4_aqk2v")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3392751, 0)

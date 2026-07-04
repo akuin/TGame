@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bknevm70eminh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_rdct8"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rdct8"]
+
+[node name="Brick" type="StaticBody3D" unique_id=1658827167 groups=["Bricks"]]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1827356650]
+transform = Transform3D(0.8, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+mesh = SubResource("BoxMesh_rdct8")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=273850604]
+transform = Transform3D(0.8, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0, 0)
+shape = SubResource("BoxShape3D_rdct8")
