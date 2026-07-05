@@ -30,6 +30,6 @@ func _physics_process(delta: float) -> void:
 				
 		if col.get_collider().is_in_group("Bricks"):
 			col.get_collider().queue_free()
-			print("string here")
+			print("point")
 	
 	velocity = velocity.normalized() * SPEED

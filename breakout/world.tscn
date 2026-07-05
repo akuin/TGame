@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://b5euf3h358583" path="res://ball.tscn" id="2_fj7yv"]
 [ext_resource type="PackedScene" uid="uid://dtl8gp4qgoeod" path="res://walls.tscn" id="3_tlwt5"]
 [ext_resource type="PackedScene" uid="uid://bknevm70eminh" path="res://brick.tscn" id="4_aqk2v"]
+[ext_resource type="Script" uid="uid://1p7wlpqohuv1" path="res://bricks.gd" id="6_dwbse"]
 
 [sub_resource type="Sky" id="Sky_gv5m4"]
 
@@ -39,5 +40,7 @@ transform = Transform3D(1, 0, 0, 0, 10, 0, 0, 0, 1, 5, 0, 0)
 [node name="Walls3" parent="." unique_id=192835248 instance=ExtResource("3_tlwt5")]
 transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.38, 0)
 
-[node name="Brick" parent="." unique_id=1658827167 instance=ExtResource("4_aqk2v")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.3392751, 0)
+[node name="Bricks" type="Node3D" parent="." unique_id=12333947]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.4681857, 0)
+script = ExtResource("6_dwbse")
+brick_scene = ExtResource("4_aqk2v")
