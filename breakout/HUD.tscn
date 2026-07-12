@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://d02m2tawa65ci"]
+
+[node name="Hud" type="Control" unique_id=1755500417]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1190833891]
+
+[node name="Score" type="Label" parent="CanvasLayer" unique_id=1442508833]
+offset_left = 25.0
+offset_top = 15.0
+offset_right = 73.0
+offset_bottom = 41.0
+text = "Score:"
+
+[node name="Lives" type="Label" parent="CanvasLayer" unique_id=354457842]
+offset_left = 25.0
+offset_top = 45.0
+offset_right = 74.0
+offset_bottom = 68.0
+text = "Lives:"

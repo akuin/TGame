@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bknevm70eminh" path="res://brick.tscn" id="4_aqk2v"]
 [ext_resource type="Script" uid="uid://1p7wlpqohuv1" path="res://bricks.gd" id="6_dwbse"]
 [ext_resource type="Script" uid="uid://clq7ish4yoaqn" path="res://game.gd" id="6_pkg7o"]
+[ext_resource type="PackedScene" uid="uid://d02m2tawa65ci" path="res://HUD.tscn" id="7_pkg7o"]
 
 [sub_resource type="Sky" id="Sky_gv5m4"]
 
@@ -48,3 +49,5 @@ brick_scene = ExtResource("4_aqk2v")
 
 [node name="Game" type="Node3D" parent="." unique_id=1040716135]
 script = ExtResource("6_pkg7o")
+
+[node name="Hud" parent="." unique_id=1755500417 instance=ExtResource("7_pkg7o")]
