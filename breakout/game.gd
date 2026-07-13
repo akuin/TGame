@@ -7,6 +7,8 @@ var score = 0
 var lives = 3
 var state := State.PLAYING
 
+var _score_label : Label
+var _lives_label : Label
 
 
 #Restart later = `get_tree().reload_current_scene()`.
@@ -17,6 +19,12 @@ func _ready() -> void:
 	ball.ball_lost.connect(_on_ball_lost)
 	ball.brick_broken.connect(_on_brick_broken)
 	
+	_score_label = get_parent().get_node("Hud/CanvasLayer/Score")
+	_lives_label = get_parent().get_node("Hud/CanvasLayer/Lives")
+	
+	_update_hud()
+
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -24,6 +32,7 @@ func _process(delta: float) -> void:
 func _on_brick_broken() -> void:
 	score += 100
 	print("Score: ", score)
+	_update_hud()
 	
 	await get_tree().process_frame
 	if get_tree().get_nodes_in_group("Bricks").is_empty():
@@ -32,6 +41,7 @@ func _on_brick_broken() -> void:
 func _on_ball_lost() -> void:
 	score -= 200
 	lives -= 1
+	_update_hud()
 	print("Life lost! Lives remaining: ", lives)
 	
 	if lives <= 0:
@@ -49,3 +59,7 @@ func _set_state(new_state: State) -> void:
 		State.LOST:
 			print("Game over!")
 			ball.set_physics_process(false)
+
+func _update_hud() -> void:
+	_score_label.text = "Score: %d" % score
+	_lives_label.text = "Lives: %d" % lives
