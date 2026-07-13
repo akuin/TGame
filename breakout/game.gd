@@ -10,6 +10,9 @@ var state := State.PLAYING
 var _score_label : Label
 var _lives_label : Label
 
+var _message_label : Label
+
+
 
 #Restart later = `get_tree().reload_current_scene()`.
 
@@ -21,6 +24,9 @@ func _ready() -> void:
 	
 	_score_label = get_parent().get_node("Hud/CanvasLayer/Score")
 	_lives_label = get_parent().get_node("Hud/CanvasLayer/Lives")
+	
+	_message_label = get_parent().get_node("Hud/CanvasLayer/GameOverPanel/MessageLabel")
+	_message_label.get_parent().hide()
 	
 	_update_hud()
 
@@ -54,10 +60,12 @@ func _set_state(new_state: State) -> void:
 
 	match state:
 		State.WON:
-			print("You won!")
 			ball.set_physics_process(false)
+			_message_label.text = "You Won!\nPress Space to restart"
+			_message_label.get_parent().show()
 		State.LOST:
-			print("Game over!")
+			_message_label.text = "Game Over!\nPress Space to restart"
+			_message_label.get_parent().show()
 			ball.set_physics_process(false)
 
 func _update_hud() -> void:
