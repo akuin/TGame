@@ -43,12 +43,15 @@ func _on_brick_broken() -> void:
 	await get_tree().process_frame
 	if get_tree().get_nodes_in_group("Bricks").is_empty():
 		_set_state(State.WON)
-	
+		
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept") and state != State.PLAYING:
+		get_tree().reload_current_scene()
+	 
 func _on_ball_lost() -> void:
 	score -= 200
 	lives -= 1
 	_update_hud()
-	print("Life lost! Lives remaining: ", lives)
 	
 	if lives <= 0:
 		_set_state(State.LOST)
